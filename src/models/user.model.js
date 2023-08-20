@@ -16,16 +16,16 @@ const userSchema = mongoose.Schema(
         type: String,
         
       },
-      preferences: [{
-        difficulty: {
+    
+      difficulty: {
           type: Number,
         
         },
-        relevance: {
+      relevance: {
           type: Number,
           
-        },
-      }],
+      },
+     
 
     },
     {

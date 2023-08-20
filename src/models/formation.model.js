@@ -6,7 +6,7 @@ const formationSchema = mongoose.Schema(
             type: String
         },
 
-        difficulté: {
+        difficulte: {
             type: Number
         },
         interet: {

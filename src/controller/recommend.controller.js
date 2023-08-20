@@ -11,7 +11,7 @@ module.exports.recommend = async (req, res) => {
         res.status(404).json({success: false, message: " non trouvée"})
    }
 
-   const Preferences = user.preferences;
+   const Preferences = [user.difficulty, user.relevance];
    const recommendation = neuralNetwork.activate(Preferences);
 
    res.status(200).json({success: true, Recommendation: recommendation})
