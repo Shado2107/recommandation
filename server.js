@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require("dotenv").config();
 const connectDB = require('./src/lib/db');
+const apiroutes = require('./src/routes/api')
+
 const port  = process.env.PORT || 3000;
 
 
@@ -17,6 +19,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 //Les routes de l'api
+app.use('/api', apiroutes)
 
 
 

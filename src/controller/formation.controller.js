@@ -1,0 +1,1 @@
+const formationModel = require("../models/formation.model")
