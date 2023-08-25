@@ -1,5 +1,6 @@
 const { neuralNetwork } = require("../lib/synaptic");
-const userModel = require("../models/user.model")
+const userModel = require("../models/user.model");
+const { getFormation } = require("./formation.controller");
 
 
 module.exports.recommend = async (req, res) => {
@@ -12,8 +13,9 @@ module.exports.recommend = async (req, res) => {
    }
 
    const Preferences = [user.difficulty, user.relevance];
-   const recommendation = neuralNetwork.activate(Preferences);
+   const recommendation = neuralNetwork.activate(Preferences)[0];
 
    res.status(200).json({success: true, Recommendation: recommendation})
+
 
 }

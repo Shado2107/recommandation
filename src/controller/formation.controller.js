@@ -9,21 +9,21 @@ module.exports.getFormation = async(req, res) => {
 
 module.exports.addFormation = async(req, res) => {
     try {
-        const {name, difficulte, interet, pertinence } = req.body
+        const {nom, difficulte, interet, pertinence } = req.body
 
          // Vérification si le nom de la ville existe déjà
-        const existingFormation = await formationModel.findOne({ name });
+        const existingFormation = await formationModel.findOne({ nom });
 
         if (existingFormation) {
             return res.status(400).json({success:false, message: 'cette formation existe déjà.' });
         }
 
-        // if(!name || !difficulte || !interet || !pertinence) {
-        //     return res.status(400).json({sucess: false, message: "Veuillez remplir toutes les informations"});
-        // }
+        if(!nom || !difficulte || !interet || !pertinence) {
+            return res.status(400).json({sucess: false, message: "Veuillez remplir toutes les informations"});
+        }
 
             const newFormation = await new formationModel({
-                name,
+                nom,
                 difficulte,
                 interet,
                 pertinence
